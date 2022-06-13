@@ -11,39 +11,46 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const CircleAvatar(
-              backgroundColor: Color(0xFF4F4242),
-            ),
-            const SizedBox(height: 20.0),
-            GestureDetector(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xFF4F4242),
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                ),
-                child: const Text(
-                  'Play',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    color: Colors.white,
-                    fontFamily: 'Imprima',
-                  ),
-                ),
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CircleAvatar(
+                backgroundColor: Color(0xFF4F4242),
               ),
-              onTap: () {
-                // play/start a new game run
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const PlayScreen(),
+              const SizedBox(height: 40.0),
+              GestureDetector(
+                child: Container(
+                  width: 120.0,
+                  height: 40.0,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF4F4242),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   ),
-                );
-              },
-            ),
-          ],
+                  child: const Center(
+                    child: Text(
+                      'Play',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        color: Colors.white,
+                        fontFamily: 'Imprima',
+                      ),
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  // play/start a new game run
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const PlayScreen(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
