@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 class Tile extends StatefulWidget {
-  const Tile({Key? key, required this.position, required this.owner})
+  const Tile(
+      {Key? key,
+      required this.position,
+      required this.owner,
+      required this.trigger})
       : super(key: key);
   final int position;
   final String owner;
+  final Function trigger;
 
   @override
   State<Tile> createState() => _TileState();
@@ -12,8 +17,18 @@ class Tile extends StatefulWidget {
 
 class _TileState extends State<Tile> {
   bool _pressed = false;
+
   @override
   Widget build(BuildContext context) {
+    if (widget.owner == "o" || widget.owner == 'x') {
+      setState(() {
+        _pressed = true;
+      });
+    } else {
+      setState(() {
+        _pressed = false;
+      });
+    }
     return GestureDetector(
       child: Container(
         padding: const EdgeInsets.all(10.0),
@@ -23,7 +38,7 @@ class _TileState extends State<Tile> {
         ),
         child: Center(
           child: Text(
-            _pressed ? widget.owner : ' ',
+            widget.owner,
             style: const TextStyle(fontSize: 28.0),
           ),
         ),
@@ -31,10 +46,10 @@ class _TileState extends State<Tile> {
       onTap: () {
         // if pressed do nothing
         if (_pressed) return;
-        // do something
         setState(() {
           _pressed = !_pressed;
         });
+        widget.trigger('x', widget.position);
       },
     );
   }
