@@ -17,10 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                backgroundColor: Color(0xFF4F4242),
-              ),
-              const SizedBox(height: 40.0),
               GestureDetector(
                 child: Container(
                   width: 120.0,
