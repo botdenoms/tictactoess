@@ -1,6 +1,16 @@
 # tictactoess
 
-A new Flutter project.
+A Flutter tictactoes game version made  using flutter, no added dependecies used 
+in the developement.
+
+The app is a single player only with the A.I being a random position picker with no 
+logic to its motives. future version of the app may incooperate a level feature of the A.I
+with increasing difficulties.
+
+## who to run
+- clone the [repository](https://github.com/botdenoms/tictactoess)
+- run flutter __run__ or **build**
+
 
 ## Getting Started
 
